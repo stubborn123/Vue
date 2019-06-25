@@ -1,0 +1,27 @@
+<html>
+    <head></head>
+    <body>
+        <div id="conditionTest1">
+            <span v-if="seen">Now you see me</span>
+        </div>
+        <div id="conditionTest2">
+            <span v-if="seen">Now you not see me</span>
+        </div>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#conditionTest1",
+            data:{
+                seen:true
+            }
+        })
+        new Vue({
+            el:"#conditionTest2",
+            data:{
+                seen:false
+            }
+        })
+    </script>
+</html>

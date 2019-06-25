@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title>循环</title>
+    </head>
+    <link href='./loop.css'></link>
+    <body>
+        <div id="loopTest">
+            <ol>
+                <li v-for="item in list" class="loopItem">
+                    {{ item.text }}
+                </li>
+            </ol>
+        </div>
+
+    </body>
+    <script  src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#loopTest",
+            data:{
+                list:[
+                    {text:'这是第一个'},
+                    {text:'这是第二个'},
+                    {text:'这是第三个'} 
+                ]
+            }
+        })
+    </script>
+</html>
