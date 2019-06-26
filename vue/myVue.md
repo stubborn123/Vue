@@ -28,8 +28,11 @@ model 利用v-model 双向绑定，怎么个双向绑定，一个值在两（多
 
 
 the Vue Instance Vue 实例
-这个mvvm模型了解一下
+补充知识：
+MVVM：这个mvvm模型了解一下.view 和 model 之间还有一个 viewModel来处理中间的交互逻辑，相当于绑定databind，举个例子view页面触发事件需要逻辑交互viewmodel来负责这个逻辑。model模型层你可以看成后端，他那边有什么变化要在前端展示，通过viewmodel视图模型作为中间商打通中间环节。（小程序那一套就很mvvm，vue也是，只不过谁更严格的像这个框架）
+[wiki关于MVVM](https://zh.wikipedia.org/wiki/MVVM)
 ![avatar](https://s2.ax1x.com/2019/06/26/ZeLQEt.png)
+文档中会用vm来代表vue实例，vm取自viewmodel
 
 
 
