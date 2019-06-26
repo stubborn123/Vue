@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <title>v-on 处理请求：click监听</title>
+    </head>
+    <body>
+        <div id="reserveTest">
+            <p>{{ message }}</p>
+            <button v-on:click="reserveClick">逆转</button>
+        </div>
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:"#reserveTest",
+            data:({
+                message:".ZP Best."
+            }),
+            methods: {
+                reserveClick: function(){
+                    //先切割成数组，倒置，连接起来
+                    this.message = this.message.split('').reverse().join('');
+                    // this.message = this.message.split('');
+                }
+            }
+        })
+    </script>
+</html>
