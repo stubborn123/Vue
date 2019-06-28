@@ -7,10 +7,16 @@ var vm = new Vue({
     data:{
       a: 1
     },
-    created: function () {
+    _created: function () {
       // `this` 指向 vm 实例
-      console.log('a is: ' + this.a)
-    }
+      console.log('a is: ' + this.a);
+    },
+    get created() {
+      return this._created;
+    },
+    set created(value) {
+      this._created = value;
+    },
 })
 
 
