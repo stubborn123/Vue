@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>这个key就是对应的值</title>
+    </head>
+    <body>
+        <div id="keyChange">
+            <template v-if="loginType === 'username'">
+                <label>Username</label>
+                <input placeholder="Enter your username">
+                </template>
+                <template v-else>
+                <label>Email</label>
+                <input placeholder="Enter your email address">
+            </template>
+            <button v-on:click="changeLoginType">toggle login type</button>
+        </div>
+        
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+            new Vue({
+                el:"#keyChange",
+                data:{
+                    loginType:'username'
+                },
+                methods: {
+                    changeLoginType:function(){
+                        var _type = this.loginType;
+                        if(_type === 'username'){
+                            this.loginType ='email'
+                        }else{
+                            this.loginType ='username'
+                        }
+                    }
+                },
+            })
+        </script>
+</html>

@@ -1,0 +1,26 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>这个JavaScript的truthy真值有点意思哦</title>
+    </head>
+    <body>
+        <div id="template">
+            <template v-if="ok">
+                <h1>Title</h1>
+                <p>Paragraph 1</p>
+                <p>Paragraph 2</p>
+            </template>
+        </div>
+        
+    </body>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+            new Vue({
+                el:"#template",
+                data:{
+                    ok:'this is true'
+                }
+            })
+        </script>
+</html>
