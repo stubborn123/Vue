@@ -1,0 +1,27 @@
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <title>这里除了体现v-for的使用以外，computed属性不适用的情况用method</title>
+    </head>
+    <body>
+        <div id="showList">
+            <li v-for="n in even(numbers)">{{ n }}</li>
+        </div>
+    </body>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+        new Vue({
+            el:'#showList',
+            data: {
+                numbers: [ 1, 2, 3, 4, 5 ]
+                },
+            methods: {
+                even: function (numbers) {
+                return numbers.filter(function (number) {
+                return number % 2 === 0
+            })
+            }
+        }
+      })
+    </script>
+</html>

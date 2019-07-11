@@ -121,14 +121,14 @@ v-if这个使判定结果为truthy（这词没听说过吧，实际上在做小�
 
 v-if是truthy就可以渲染（类似的还有wx:if也是这么玩的）
 
-# 在<template>元素中使用v-if来渲染
+#在< template >元素中使用v-if来渲染
 这个看看例子就知道就是在模板里使用渲染
 
-# v-else 
+#v-else 
 
-# v-else-if
+#v-else-if
 
-# 用key管理可复用的元素
+用key管理可复用的元素
 其实就是通过全等（注意用===）来判断属性的的值，我的例子写的很清楚。
 
 2 v-show
@@ -140,7 +140,7 @@ v-if是truthy就可以渲染（类似的还有wx:if也是这么玩的）
 
 4 v-if VS v-for
 
-列表渲染ListRendering
+**列表渲染ListRendering**
 用v-for把一个数组对应为一组元素
 需要使用类似 item in items形式的特殊语法
 v-for除了支持item，除了里面的元素当前项之外还有就是可选的第二个参数index，也就是当前项的索引
@@ -151,7 +151,7 @@ v-for除了支持item，除了里面的元素当前项之外还有就是可选�
 维护状态
 
 数组更新检测
-# 变异方法
+## 变异方法
 vue侦听数组的变异方法（就是数组变动的方法）进行包裹，他会触发视图更新，这些方法如下：   
     push()
     pop()
@@ -160,12 +160,50 @@ vue侦听数组的变异方法（就是数组变动的方法）进行包裹，�
     splice()
     sort()
     reverse()
-# 替换元素
+## 替换元素
 
-#注意事项
+## 注意事项
 这里就是vue对于数组还是有些没办法的，不如长度不能修改等
 
 对象变更检测注意事项
 vue不能检测对象属性的添加和删除（------这一点还是要注意的，到时候没更新没响应）
 
+先看两个问题：
+问题1：利用索引直接设置一个数组项
+问题2:修改数组长度
+这两个都不能让vue检测到数组的的改动
+
+```
+var vm = new Vue({
+  data: {
+    items: ['a', 'b', 'c']
+  }
+})
+vm.items[1] = 'x' // 不是响应性的
+vm.items.length = 2 // 不是响应性的
+```
+
 对象要变化怎么办？Vue直接set
+第一类
+```
+// Vue.set
+Vue.set(vm.items, indexOfItem, newValue)
+
+
+// Array.prototype.splice
+vm.items.splice(indexOfItem, 1, newValue)
+```
+
+vm.$set 实例方法 是vue全局方法的一个别名
+
+解决第二类方法
+```
+vm.items.splice(newLength)
+```
+
+显示过滤/排序后的结果
+这里其实就是展示了computed计算属性的用法，看例子showResult.html
+还有就是有的时候计算属性computed不适用的情况下，可以用method来计算过滤，然后也是用v-for,看例子
+
+在v-for的使用范围
+v-for可以接受整数
